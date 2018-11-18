@@ -3,49 +3,60 @@ import 'package:flutter/material.dart';
 void main(){
   runApp(MaterialApp(
     title: "Contador de Pessoas",
-    home: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+    home: Stack(
       children: <Widget>[
-        Text(
-          "Pessoas:0",
-          style: TextStyle(color: Colors.white,
-                 fontWeight: FontWeight.bold
-          ),
+        //imagem de fundo 
+        Image.asset(
+          "imagens/PlanoFundo.jpg",
+          fit: BoxFit.cover,
+          height:1000.0,
         ),
-        Row(
+        //componentes da tela 
+        Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            FlatButton(
-              child: Text(
-                "+1",
-                style: TextStyle(
-                       fontSize: 40.0,
-                       color: Colors.white
-                ),
+            Text(
+              "Pessoas:0",
+              style: TextStyle(color: Colors.white,
+                    fontWeight: FontWeight.bold
               ),
-              onPressed: (){},
             ),
-            FlatButton(
-              child: Text(
-                "+1",
-                style: TextStyle(
-                       fontSize: 40.0,
-                       color: Colors.white
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: FlatButton(
+                    child: Text(
+                      "+1",
+                      style: TextStyle(fontSize: 40.0,color: Colors.white),
+                    ),
+                    onPressed: (){},
+                  ),
                 ),
+                Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: FlatButton(
+                    child: Text(
+                      "-1",
+                      style: TextStyle(fontSize: 40.0,color: Colors.white),
+                    ),
+                    onPressed: (){},
+                  ),
+                ),
+              ],
+            ),
+            Text(
+              "Pode Entrar!",
+              style: TextStyle(color: Colors.white, 
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30.0
               ),
-              onPressed: (){},
-            )
+            ),
           ],
-        ),
-        Text(
-          "Pode Entrar!",
-          style: TextStyle(color: Colors.white, 
-                 fontWeight: FontWeight.bold,
-                 fontSize: 30.0
-          ),
-        ),
-      ],
 
+        )
+      ],
     )
   ));
 }
